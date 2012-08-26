@@ -1,0 +1,58 @@
+﻿@model dynamic
+
+@{
+	ViewBag.Title = "jQuery Demo";
+}
+@section scripts
+{
+    <script src="~/Scripts/knockout-2.1.0.js"></script>
+	<script type="text/javascript">
+	    $(function () {
+	        ko.bindingHandlers.elapsedTime = {
+	            update: function(element, valueAccessor, allBindingsAccessor, viewModel) {
+	                var value = valueAccessor();
+	                $(element).text(calcElapsedTime(value));
+	            }
+	        };
+            $.ajax({
+                url: "http://search.twitter.com/search.json?q=devlink",
+                dataType: "jsonp",
+                jsonpCallback: "twitterCallback"
+            });
+        });
+        
+        function twitterCallback(r) {
+            console.log(r);
+            var view = { tweets: r.results };
+            ko.applyBindings(view);
+        }
+        
+        function calcElapsedTime(t) {
+            var d = new Date(t);
+            var e = new Date().getTime() - d.getTime();
+            var seconds = Math.abs(e) / 1000;
+            var minutes = seconds / 60;
+            var hours = minutes / 60;
+            var days = hours / 24;
+            var years = days / 365;
+            if (years >= 1) return Math.floor(years) + "y " + Math.floor(days) + "d";
+            if (days >= 1) return Math.floor(days) + "d";
+            if (hours >= 1) return Math.floor(hours) + "h";
+            if (minutes >= 1) return Math.floor(minutes) + "m";
+            return "just now";
+        }
+    </script>
+}
+<section class="demo-body">
+    <h1>jQuery Demo</h1>
+    <ul id="twitter-search-results" data-bind="foreach: tweets">
+	    <li data-bind="attr: {'data-id': id}" >
+		    <div class="tweet">
+			    <img class="profile-pic" data-bind="attr: {src:profile_image_url, alt:from_user_name}" />
+			    <div class="time-ago" data-bind="elapsedTime:created_at"></div>
+			    <div class="from-user" data-bind="text:from_user"></div>
+			    <div class="tweet-text" data-bind="text:text"></div>
+		    </div>
+	    </li>
+    </ul>
+</section>
