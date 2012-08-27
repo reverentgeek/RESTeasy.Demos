@@ -1,11 +1,14 @@
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace RESTeasy.Client.Demos
 {
 	public class SearchResults
 	{
+		public SearchResults() { Results = new List<Tweet>(); }
+
 		[JsonProperty(PropertyName = "results")]
-		public Tweet[] Tweets { get; set; }
+		public List<Tweet> Results { get; set; }
 
 		[JsonProperty(PropertyName = "results_per_page")]
 		public int ResultsPerPage { get; set; }

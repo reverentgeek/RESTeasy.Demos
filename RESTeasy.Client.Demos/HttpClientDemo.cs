@@ -43,10 +43,10 @@ namespace RESTeasy.Client.Demos
 					var response = await client.GetStringAsync("search.json?q=" + search);
 
 					var searchResults = JsonConvert.DeserializeObject<SearchResults>(response);
-					foreach (var tweet in searchResults.Tweets)
+					foreach (var tweet in searchResults.Results)
 					{
-						Console.WriteLine("{0:MM/dd/yyyy hh:mm}", tweet.Created);
-						Console.WriteLine("{0} (@{1})", tweet.FromName, tweet.FromUser);
+						Console.WriteLine("{0:MM/dd/yyyy hh:mm}", tweet.CreatedAt);
+						Console.WriteLine("{0} (@{1})", tweet.FromUserName, tweet.FromUser);
 						Console.WriteLine(tweet.Text);
 						Console.WriteLine("");
 					}
