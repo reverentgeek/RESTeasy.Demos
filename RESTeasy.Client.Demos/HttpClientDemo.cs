@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
 
@@ -32,7 +33,7 @@ namespace RESTeasy.Client.Demos
 			}
 		}
 
-		public async void SearchTwitterTyped(string search)
+		public async void SearchTwitterStronglyTyped(string search)
 		{
 			const string serverAddress = "http://search.twitter.com";
 
@@ -43,19 +44,26 @@ namespace RESTeasy.Client.Demos
 					var response = await client.GetStringAsync("search.json?q=" + search);
 
 					var searchResults = JsonConvert.DeserializeObject<SearchResults>(response);
-					foreach (var tweet in searchResults.Results)
-					{
-						Console.WriteLine("{0:MM/dd/yyyy hh:mm}", tweet.CreatedAt);
-						Console.WriteLine("{0} (@{1})", tweet.FromUserName, tweet.FromUser);
-						Console.WriteLine(tweet.Text);
-						Console.WriteLine("");
-					}
+
+					PrintTweets(searchResults.Results);
 				}
 			}
 			catch (HttpRequestException ex)
 			{
 				Console.WriteLine(ex.Message);
 			}
+		}
+
+		private void PrintTweets(List<Tweet> tweets)
+		{
+			foreach (var tweet in tweets)
+			{
+				Console.WriteLine("{0:MM/dd/yyyy hh:mm}", tweet.CreatedAt);
+				Console.WriteLine("{0} (@{1})", tweet.FromUserName, tweet.FromUser);
+				Console.WriteLine(tweet.Text);
+				Console.WriteLine("");
+			}
+
 		}
 	}
 }

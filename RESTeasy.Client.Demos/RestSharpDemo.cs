@@ -20,13 +20,19 @@ namespace RESTeasy.Client.Demos
 			// var content = response.Content;
 
 			var response = client.Execute<SearchResults>(request);
-			foreach (var tweet in response.Data.Results)
+			PrintTweets(response.Data.Results);
+		}
+
+		public void PrintTweets(List<Tweet> tweets)
+		{
+			foreach (var tweet in tweets)
 			{
 				Console.WriteLine("{0:MM/dd/yyyy hh:mm}", tweet.CreatedAt);
 				Console.WriteLine("{0} (@{1})", tweet.FromUserName, tweet.FromUser);
 				Console.WriteLine(tweet.Text);
 				Console.WriteLine("");
 			}
+			
 		}
 	}
 }
