@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using Newtonsoft.Json;
+using RESTeasy.Demos.Library;
 
 namespace RESTeasy.Demos.Client
 {
@@ -64,6 +67,18 @@ namespace RESTeasy.Demos.Client
 				Console.WriteLine("");
 			}
 
+		}
+
+		public async void AddBook(IBook book)
+		{
+			using (var client = new HttpClient { BaseAddress = new Uri("http://rest.test.com") })
+			{
+				var content = new StringContent(JsonConvert.SerializeObject(book), new UTF8Encoding(), "application/json");
+				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+				var response = await client.PostAsync("services/books", content);
+				var responseString = await response.Content.ReadAsStringAsync();
+				Console.WriteLine(responseString);
+			}
 		}
 	}
 }

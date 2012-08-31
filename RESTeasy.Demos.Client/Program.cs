@@ -22,6 +22,8 @@ namespace RESTeasy.Demos.Client
 			//		Description = "Awesome book on RavenDB",
 			//		Published = DateTime.Now.AddYears(1)
 			//	};
+
+			//demo1.AddBook(book);
 			//demo2.AddBook(book);
 
 			//book.Id = 65;
