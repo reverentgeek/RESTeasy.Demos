@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RESTeasy.Demos.Library;
 using RestSharp;
 
 namespace RESTeasy.Client.Demos
@@ -33,6 +31,38 @@ namespace RESTeasy.Client.Demos
 				Console.WriteLine("");
 			}
 			
+		}
+
+		public void AddBook(IBook book) 
+		{ 
+			var client = new RestClient("http://rest.test.com/services");
+			var request = new RestRequest("books", Method.POST);
+			request.RequestFormat = DataFormat.Json;
+			request.AddBody(book);
+
+			var response = client.Execute(request);
+			Console.WriteLine(response.Content);
+		}
+
+		public void UpdateBook(IBook book)
+		{
+			var client = new RestClient("http://rest.test.com/services");
+			var request = new RestRequest("books", Method.PUT);
+			request.RequestFormat = DataFormat.Json;
+			request.AddBody(book);
+
+			var response = client.Execute(request);
+			Console.WriteLine(response.Content);	
+		}
+
+		public void DeleteBook(int id)
+		{
+			var client = new RestClient("http://rest.test.com/services");
+			var request = new RestRequest("books", Method.DELETE);
+			request.AddParameter("Id", id);
+
+			var response = client.Execute(request);
+			Console.WriteLine(response.Content);
 		}
 	}
 }

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using RESTeasy.Demos.Library;
 using ServiceStack.ServiceHost;
 using ServiceStack.ServiceInterface.ServiceModel;
 
 namespace RESTeasy.Demos.Models
 {
-	[RestService("/books", Verbs = "GET")]
+	[RestService("/books")]
 	public class Books
 	{
 		public Books() { Page = 1; }
@@ -14,7 +13,7 @@ namespace RESTeasy.Demos.Models
 	}
 
 	[RestService("/books"), RestService("/books/{Id}")]
-	public class Book : IBook
+	public class Book
 	{
 		public int Id { get; set; }
 		public string Title { get; set; }

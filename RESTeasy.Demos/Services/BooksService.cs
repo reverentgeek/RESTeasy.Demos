@@ -139,7 +139,7 @@ namespace RESTeasy.Demos.Services
 					}
 					session.Delete(book);
 					session.SaveChanges();
-					response.ResponseStatus = new ResponseStatus("202");
+					// response.ResponseStatus = new ResponseStatus("202");
 
 					return response;
 				}

@@ -25,28 +25,6 @@ namespace RESTeasy.Demos.Controllers
 			}
         }
 
-		public IEnumerable<Book> Get(string version, int id = 0, int page = 1)
-		{
-			if (version == "v2")
-			{
-				using (var session = RavenHelper.Store.OpenSession())
-				{
-					var query = session.Query<Book>().OrderBy(x => x.Title).Take(PageSize).Skip((page - 1)*PageSize);
-
-					var books = query.ToList();
-					return books;
-				}
-			}
-			else
-			{
-				throw new HttpResponseException(
-					new HttpResponseMessage(HttpStatusCode.NotImplemented)
-						{
-							ReasonPhrase = "This version of the API does not implement this Books interface"
-						});
-			}
-		}
-
         // GET api/books/5
         public Book Get(int id)
         {
@@ -102,5 +80,28 @@ namespace RESTeasy.Demos.Controllers
 				return response;
 			}
         }
+
+		//public IEnumerable<Book> Get(string version, int id = 0, int page = 1)
+		//{
+		//	if (version == "v2")
+		//	{
+		//		using (var session = RavenHelper.Store.OpenSession())
+		//		{
+		//			var query = session.Query<Book>().OrderBy(x => x.Title).Take(PageSize).Skip((page - 1)*PageSize);
+
+		//			var books = query.ToList();
+		//			return books;
+		//		}
+		//	}
+		//	else
+		//	{
+		//		throw new HttpResponseException(
+		//			new HttpResponseMessage(HttpStatusCode.NotImplemented)
+		//				{
+		//					ReasonPhrase = "This version of the API does not implement this Books interface"
+		//				});
+		//	}
+		//}
+
     }
 }
