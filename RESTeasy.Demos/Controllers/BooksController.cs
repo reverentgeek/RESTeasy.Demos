@@ -6,13 +6,12 @@ using System.Net.Http;
 using System.Web.Http;
 using RESTeasy.Demos.Helpers;
 using RESTeasy.Demos.Models;
-using ServiceStack.ServiceInterface.ServiceModel;
 
 namespace RESTeasy.Demos.Controllers
 {
     public class BooksController : ApiController
     {
-		private const int PageSize = 30;
+		private const int PageSize = 2;
 
 		public IEnumerable<Book> Get(int id = 0, int page = 1)
         {
@@ -25,6 +24,28 @@ namespace RESTeasy.Demos.Controllers
 				return books;
 			}
         }
+
+		public IEnumerable<Book> Get(string version, int id = 0, int page = 1)
+		{
+			if (version == "v2")
+			{
+				using (var session = RavenHelper.Store.OpenSession())
+				{
+					var query = session.Query<Book>().OrderBy(x => x.Title).Take(PageSize).Skip((page - 1)*PageSize);
+
+					var books = query.ToList();
+					return books;
+				}
+			}
+			else
+			{
+				throw new HttpResponseException(
+					new HttpResponseMessage(HttpStatusCode.NotImplemented)
+						{
+							ReasonPhrase = "This version of the API does not implement this Books interface"
+						});
+			}
+		}
 
         // GET api/books/5
         public Book Get(int id)
