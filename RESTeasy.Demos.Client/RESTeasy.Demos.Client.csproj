@@ -7,8 +7,8 @@
     <ProjectGuid>{79425CBE-150A-4F7F-A25C-ED1FA60EA204}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RESTeasy.Client.Demos</RootNamespace>
-    <AssemblyName>RESTeasy.Client.Demos</AssemblyName>
+    <RootNamespace>RESTeasy.Demos.Client</RootNamespace>
+    <AssemblyName>RESTeasy.Demos.Client</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

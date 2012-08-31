@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace RESTeasy.Client.Demos
+namespace RESTeasy.Demos.Client
 {
 	public class SearchResults
 	{

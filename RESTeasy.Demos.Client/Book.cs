@@ -1,7 +1,7 @@
 ﻿using System;
 using RESTeasy.Demos.Library;
 
-namespace RESTeasy.Client.Demos
+namespace RESTeasy.Demos.Client
 {
 	public class Book : IBook
 	{

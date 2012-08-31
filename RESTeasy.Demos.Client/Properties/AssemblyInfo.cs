@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RESTeasy.Library")]
+[assembly: AssemblyTitle("RESTeasy.Demos.Client")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RESTeasy.Library")]
+[assembly: AssemblyProduct("RESTeasy.Demos.Client")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bc9aec05-be90-4890-9e5b-d638e2c4273e")]
+[assembly: Guid("c470d2e2-fbda-424c-8b4a-2e6040f738b0")]
 
 // Version information for an assembly consists of the following four values:
 //

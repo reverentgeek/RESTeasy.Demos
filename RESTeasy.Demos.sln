@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTeasy.Demos", "RESTeasy.Demos\RESTeasy.Demos.csproj", "{B8A541D3-E15C-483E-8518-53A49A1069D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTeasy.Client.Demos", "RESTeasy.Client.Demos\RESTeasy.Client.Demos.csproj", "{79425CBE-150A-4F7F-A25C-ED1FA60EA204}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTeasy.Demos.Client", "RESTeasy.Demos.Client\RESTeasy.Demos.Client.csproj", "{79425CBE-150A-4F7F-A25C-ED1FA60EA204}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTeasy.Demos.Library", "RESTeasy.Demos.Library\RESTeasy.Demos.Library.csproj", "{777654CB-1D66-4B9C-B2E8-A4FF9C72ECAF}"
 EndProject

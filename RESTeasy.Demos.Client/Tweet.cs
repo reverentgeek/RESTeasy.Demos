@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace RESTeasy.Client.Demos
+namespace RESTeasy.Demos.Client
 {
 	public class Tweet
 	{

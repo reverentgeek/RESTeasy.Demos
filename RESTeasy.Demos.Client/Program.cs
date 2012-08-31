@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RESTeasy.Client.Demos
+namespace RESTeasy.Demos.Client
 {
 	class Program
 	{

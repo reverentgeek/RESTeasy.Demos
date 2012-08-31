@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
 
-namespace RESTeasy.Client.Demos
+namespace RESTeasy.Demos.Client
 {
 	public class HttpClientDemo
 	{

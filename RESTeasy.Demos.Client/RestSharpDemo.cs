@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using RESTeasy.Demos.Library;
 using RestSharp;
 
-namespace RESTeasy.Client.Demos
+namespace RESTeasy.Demos.Client
 {
 	public class RestSharpDemo
 	{
